@@ -1,0 +1,21 @@
+<h1>Edit user data</h1>
+
+<%= form_for(@user, html: {multipart: true}) do |f|  %>
+    <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+    <%= f.label :Username, 'Username' %>
+    <%= f.text_field :username, value: @user.username %>
+    <br>
+    <%= f.label :Email, 'e-mail' %>
+    <%= f.text_field :email, value: @user.email %>
+    <br>
+    <%= f.label :Password, 'password' %>
+    <%= f.text_field :password %>
+    <br>
+    <%= f.submit "Submit" %>
+<% end %>
